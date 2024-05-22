@@ -1,67 +1,102 @@
+import java.util.Arrays;
+import java.util.EnumMap;
+import java.util.Enumeration;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("======= 1 funkcija =======");
-        priimti();
+        get(1, 50);
+        get(16, 26);
         System.out.println("======= 2 funkcija =======");
         pisQ();
         System.out.println("======= 3 funkcija =======");
-        sandauga();
+        multiplication(3, 5);
         System.out.println("======= 4 funkcija =======");
-        ciklas();
+        int[] arr = {5, 8, 10};
+        printArr(arr);
         System.out.println("======= 5 funkcija =======");
-        random();
+        random(4, 6);
         System.out.println("======= 6 funkcija =======");
-        //masyvas();//dar nepabaigta
-
-
+        int[] newArr = arr(15, 20, 30);
+        printArr(newArr);
+        System.out.println("======= 7 funkcija =======");
+        //arrback();
+        printStar(5,6);
 
     }
 
-    public static void priimti() {
-        int sk = 1;
-        int sk1 = 2;
-        int sum = sk + sk1;
+    public static void get(int a, int b) {
+        //======= 1 funkcija =======
+        int sum = a + b;
         System.out.println(sum);
     }
 
     public static void pisQ() {
+        //======= 2 funkcija =======
         double d = 9.8596;
         System.out.println(d);
     }
 
-    public static void sandauga() {
-        int num = 3;
-        int num1 = 4;
+    public static void multiplication(int num, int num1) {
+        //======= 3 funkcija =======
         int x = num * num1;
         System.out.println(x);
     }
-    public static void ciklas(){
-        int O = 0;
-        for (; O < 10; O++) {
-            System.out.print(O + ",");
+
+    public static void printArr(int[] arr) {
+        //======= 4 funkcija =======
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
         }
-        System.out.println();
+
     }
-    public static void random(){
-        double numb = Math.random()*100;
-        double numb1 = Math.random()*100;
-        System.out.println("Pirmas skaičius yra: " + numb);
-        System.out.println("Antras skaičius yra: " + numb1);
-        if (numb <=numb1){
-            System.out.println("Pirmas skaičius mažesnis už " + numb1);
+
+    public static void random(int sk, int sk1) {
+        //======= 5 funkcija =======
+        if (sk <= sk1) {
+            System.out.println("Pirmas skaičius mažesnis už " + sk1);
         }
-        if (numb >=numb1){
-            System.out.println("Antras skaičius didesnis už " + numb);
+        if (sk >= sk1) {
+            System.out.println("Antras skaičius didesnis už " + sk);
         }
     }
-    public static void masyvas(){
-        long min1 = Math.round(Math.random())*100;
-        long max1 = Math.round(Math.random())*100;
-        long [] masyvas = {Math.round(Math.random()),Math.round(Math.random()),Math.round(Math.random())};
-        System.out.println(masyvas[0]);
-//        for (int a = 0; a <masyvas.length; a++ ){
-//            System.out.println(masyvas[0-2]);
-//        }
+
+    public static int[] arr(int min, int max, int length) {
+        //======= 6 funkcija =======
+        int[] arr = new int[length];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = min + (int) Math.round(Math.random() * (max - min));
+        }
+        return arr;
+    }
+
+//    public static int [] arrback(int[] newArr) {
+//        //======= 7 funkcija =======
+//        //return newArr();
+//    }
+
+    public static void ddouble() {
+
+    }
+    //======= 8 funkcija =======
+
+    //======= 9 funkcija =======
+    public static void printStar(int rows, int columns){
+        // Patikrinkite, ar rows ir columns yra teigiami skaičiai
+        if (rows <= 0 || columns <= 0) {
+            throw new IllegalArgumentException("Rows ir columns turi būti teigiami skaičiai");
+        }
+
+        // Spausdinkite žvaigždučių eilutes
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+    public static void Characters(String sakinys){
+
     }
 
 
@@ -73,21 +108,4 @@ public class Main {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
+}
