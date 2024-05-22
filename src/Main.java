@@ -1,7 +1,3 @@
-import java.util.Arrays;
-import java.util.EnumMap;
-import java.util.Enumeration;
-
 public class Main {
     public static void main(String[] args) {
         System.out.println("======= 1 funkcija =======");
@@ -20,8 +16,15 @@ public class Main {
         int[] newArr = arr(15, 20, 30);
         printArr(newArr);
         System.out.println("======= 7 funkcija =======");
-        //arrback();
-        printStar(5,6);
+        arrback();
+        System.out.println("======= 9 funkcija =======");
+        printStar(5, 6);
+        System.out.println("======= 10 funkcija =======");
+        CountLettersAndSpaces("sveiki gyvi");
+        System.out.println("======= 11 funkcija =======");
+        System.out.println();
+        encryption("trys");
+
 
     }
 
@@ -64,16 +67,17 @@ public class Main {
     public static int[] arr(int min, int max, int length) {
         //======= 6 funkcija =======
         int[] arr = new int[length];
-        for (int i = 0; i < arr.length; i++) {
+        for ( int i = 0; i < arr.length; i++) {
             arr[i] = min + (int) Math.round(Math.random() * (max - min));
         }
         return arr;
     }
 
-//    public static int [] arrback(int[] newArr) {
-//        //======= 7 funkcija =======
-//        //return newArr();
-//    }
+    public static int arrback(int arr) {
+        //======= 7 funkcija =======
+        System.out.println(arr);
+        return arr;
+    }
 
     public static void ddouble() {
 
@@ -81,8 +85,9 @@ public class Main {
     //======= 8 funkcija =======
 
     //======= 9 funkcija =======
-    public static void printStar(int rows, int columns){
+    public static void printStar(int rows, int columns) {
         // Patikrinkite, ar rows ir columns yra teigiami skaičiai
+        //gemini
         if (rows <= 0 || columns <= 0) {
             throw new IllegalArgumentException("Rows ir columns turi būti teigiami skaičiai");
         }
@@ -95,17 +100,33 @@ public class Main {
             System.out.println();
         }
     }
-    public static void Characters(String sakinys){
+    //======= 10 funkcija =======
+    //gemini
+    public static void CountLettersAndSpaces(String sentence) {
+        int lettersCount = 0;
+        int spacesCount = 0;
+        for (char character : sentence.toCharArray()) {
+            if (Character.isLetter(character)) lettersCount++;
+        }
+        for (char character : sentence.toCharArray()) {
+            if (Character.isWhitespace(character)) {
+                spacesCount++;
+            }
+        }
 
+        System.out.print("Sakinyje - " + sentence);
+        System.out.print(" yra " + lettersCount + " raidžių ");
+        System.out.println("ir " + spacesCount + " tarpų");
     }
-
-
-
-
-
-
-
-
+    //======= 11 funkcija =======
+    //gemini
+    public static String encryption(String sentence1) {
+        StringBuilder reversedSentence = new StringBuilder();
+        for (int i = sentence1.length() - 1; i >= 0; i--) {
+            reversedSentence.append(sentence1.charAt(i));
+        }
+        return reversedSentence.toString();
+    }
 
 
 }
