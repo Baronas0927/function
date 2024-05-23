@@ -16,7 +16,8 @@ public class Main {
         int[] newArr = arr(15, 20, 30);
         printArr(newArr);
         System.out.println("======= 7 funkcija =======");
-        arrback();
+        System.out.println(sumArr(newArr));
+        System.out.println(avgArr(newArr));
         System.out.println("======= 9 funkcija =======");
         printStar(5, 6);
         System.out.println("======= 10 funkcija =======");
@@ -34,20 +35,19 @@ public class Main {
         System.out.println(sum);
     }
 
-    public static void pisQ() {
+    public static double pisQ() {
         //======= 2 funkcija =======
-        double d = 9.8596;
-        System.out.println(d);
+        return 9.8596;
     }
 
-    public static void multiplication(int num, int num1) {
+    public static int multiplication(int num, int num1) {
         //======= 3 funkcija =======
-        int x = num * num1;
-        System.out.println(x);
+        return num * num1;
     }
 
     public static void printArr(int[] arr) {
         //======= 4 funkcija =======
+
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
         }
@@ -67,42 +67,35 @@ public class Main {
     public static int[] arr(int min, int max, int length) {
         //======= 6 funkcija =======
         int[] arr = new int[length];
-        for ( int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             arr[i] = min + (int) Math.round(Math.random() * (max - min));
         }
         return arr;
     }
 
-    public static int arrback(int arr) {
+    public static int sumArr(int[] arr) {
         //======= 7 funkcija =======
-        System.out.println(arr);
-        return arr;
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        return sum;
     }
 
     public static void ddouble() {
 
     }
     //======= 8 funkcija =======
-
+public static double avgArr(int [] arr){
+        return sumArr(arr) / (double) arr.length;
+}
     //======= 9 funkcija =======
-    public static void printStar(int rows, int columns) {
-        // Patikrinkite, ar rows ir columns yra teigiami skaičiai
-        //gemini
-        if (rows <= 0 || columns <= 0) {
-            throw new IllegalArgumentException("Rows ir columns turi būti teigiami skaičiai");
-        }
-
-        // Spausdinkite žvaigždučių eilutes
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                System.out.print("*");
-            }
-            System.out.println();
-        }
+    public static void printStar(String text) {
+        System.out.println("Tarpu yra " + (text.length() - text.replace(" ", "").length() + ", simboliu "+ text.replace(" ","")));
     }
+
     //======= 10 funkcija =======
-    //gemini
-    public static void CountLettersAndSpaces(String sentence) {
+    public static String CountLettersAndSpaces(String sentence) {
         int lettersCount = 0;
         int spacesCount = 0;
         for (char character : sentence.toCharArray()) {
@@ -118,6 +111,7 @@ public class Main {
         System.out.print(" yra " + lettersCount + " raidžių ");
         System.out.println("ir " + spacesCount + " tarpų");
     }
+
     //======= 11 funkcija =======
     //gemini
     public static String encryption(String sentence1) {
